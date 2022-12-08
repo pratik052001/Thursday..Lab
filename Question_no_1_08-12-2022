@@ -1,0 +1,41 @@
+use PratikDB;
+create table emp5(eid int primary key,fname varchar(20),lname varchar(20),
+salary int,dob date,DOjoin date,dep varchar(20),des varchar(20),
+city varchar(20),state varchar(20)); 
+desc emp5;
+insert into emp5 values(1,"mahesh","mhetre",10000,"2002-03-12","2003-03-3","IT","HACKER","pune","maharastra");
+insert into emp5 values(2,"suraj","patil",20000,"2004-03-12","2004-03-3","IT","devloper","mumbai","maharastra");
+insert into emp5 values(3,"aaaaa","mmmmm",30000,"2005-03-12","2005-03-3","computer","tester","delhi","maharastra");
+insert into emp5 values(4,"bbbbb","nnnnn",40000,"2007-03-12","2007-03-3","computer","gamer","kolkataa","maharastra");
+create table Incentive (Eref_id int, Incdate date,incamount int,foreign key(Eref_id) references emp5(eid));
+select * from emp5;
+select * from Incentive;
+insert into Incentive values(1,"2022-09-09",400000);
+insert into Incentive values(2,"2012-09-08",600000);
+insert into Incentive values(3,"2022-07-05",500000);
+insert into Incentive values(4,"2022-07-04",600000);
+set SQL_SAFE_UPDATES=0;
+
+
+
+
+
+
+select fname from emp5;
+select ucase(fname) from emp5;
+select distinct(dep) from emp5;
+select substring(fname,1,3) from emp5;
+select position("a" in fname) from emp5 where fname="mahesh";
+select distinct dep,length(dep) as departmentlength from emp5;
+select replace(fname,"a","A") from emp5;
+select concat(fname,"",lname) as complet_name from emp5;
+select * from emp5 order by fname asc;
+select * from emp5 order by fname asc,dep desc;
+select * from emp5 where fname in ("suraj","mahesh");
+select * from emp5 where fname not in ("suraj","mahesh");
+select * from emp5 where dep="IT";
+select * from emp5 where fname like "%a%";
+select * from emp5 where fname like "%a";
+select * from emp5 where fname like "_____h";
+select * from emp5 where salary between 10000 and 30000;
+select * from emp5 where DOjoin like "2003-03-03";
